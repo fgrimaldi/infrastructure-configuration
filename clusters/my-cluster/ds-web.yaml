@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ds-pippo
+spec:
+  selector:
+    matchLabels:
+      system: ds-one
+  template:
+    metadata:
+      labels:
+        system: ds-one
+    spec:
+      containers:
+      - name: nginx
+        image: r.deso.tech/library/nginx
+        ports:
+        - containerPort: 80
